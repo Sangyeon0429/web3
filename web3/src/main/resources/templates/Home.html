@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+body {
+	font-family: 'EB Garamond', serif;
+	margin: 20px;
+	background-color: #F5F5DC;
+}
+
+#container {
+	width: 800px;
+	margin: auto;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	text-align: center; /* 중앙 정렬을 위한 설정 */
+}
+
+h1 {
+	text-align: center;
+	color: #333;
+}
+
+ol {
+	list-style-type: none;
+	padding: 0;
+	text-align: center;
+	width: 300px;
+	margin-left: 300px;
+}
+
+ol li {
+	margin-bottom: 10px;
+	text-align: left; /* 내부 텍스트 왼쪽 정렬 */
+}
+
+a {
+	text-decoration: none;
+	color: #654321; /* Dark Brown */
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul {
+	padding-left: 20px;
+}
+</style>
+<body>
+	<div id=container>
+		<h1>[ Main Page ]</h1>
+
+		<ol>
+			<li>
+				<ul>
+					<li><a href="test">저장 테스트</a></li>
+					<li><a href="save">사용자의 입력값 저장하기</a></li>
+					<li><a href="select">ID로 조회</a></li>
+					<li><a href="delete">ID로 삭제</a></li>
+					<li><a href="selectAll">전체 회원 보기</a></li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+</body>
+</html>

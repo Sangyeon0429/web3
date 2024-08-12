@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>selectAll.html</title>
+<script src="/jquery-3.7.1.min (1).js"></script>
+<script>
+	$(document).ready(function() {
+		// confirmDelete 클래스를 가진 버튼을 클릭하면 확인창을 띄우고 삭제 요청을 보냄
+		$('.confirmDelete').on('click', function() {
+			var id = $(this).attr('data-id'); // data-id 속성에서 id 값을 가져옴
+			if (confirm(id + " 회원을 삭제하시겠습니까?")) {
+				$(location).attr("href", "/part_delete?id=" + id);
+			}
+		});
+	});
+</script>
+<script>
+	// part_delete 함수 정의
+	function part_delete(id) {
+		if (confirm(id + " 회원을 삭제하시겠습니까?")) {
+			window.location.href = "/part_delete?id=" + id;
+		}
+	}
+</script>
+
+<style>
+body {
+	font-family: 'EB Garamond', serif;
+	margin: 20px;
+	background-color: #F5F5DC;
+}
+
+.container {
+	width: 80%;
+	margin: 20px auto;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+	color: #8B4513;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 8px;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+th {
+	background-color: #8B4513;
+	color: #F5F5DC;
+}
+
+tr:nth-child(even) {
+	background-color: #FAF0E6;
+}
+
+tr:hover {
+	background-color: #FFE4C4;
+}
+
+a {
+	text-decoration: none;
+	color: #8B4513;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+	<h1>모든 아이디 정보</h1>
+	<table>
+		<tr>
+			<th>No.</th>
+			<th>I D</th>
+			<th>I D 2</th>
+			<th>기 능</th>
+			<th>기 능 2</th>
+			<th>기 능 3</th>
+			<th>수 정</th>
+		</tr>
+		<tr th:each="d, i : ${dtoList}">
+			<td th:text="${i.index + 1}"></td>
+			<td><a th:href="|view?id=${d.id}|" th:text="${d.id}"></a></td>
+			<td><a th:href="@{/info/{viewid}(viewid=${d.id})}"
+				th:text="${d.id}"></a></td>
+			<td><a th:href="@{|/part_delete?id=${d.id}|}">삭제</a></td>
+			<td>
+				<button>
+					<a th:href="|javascript:part_delete('${d.id}')|">삭제</a>
+				</button>
+			</td>
+			<td>
+				<button type="button" class="confirmDelete" th:data-id="${d.id}">삭제</button>
+			</td>
+			<td><a th:href="@{|update?id=${d.id}|}">수정</a></td>
+		</tr>
+	</table>
+</body>
+</html>

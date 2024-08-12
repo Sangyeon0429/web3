@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>delete.html</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: beige;
+	text-align: center;
+}
+
+h1 {
+	color: darkgreen;
+}
+
+form {
+	width: 300px;
+	margin: auto;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	margin: 5px 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+span{
+color: red;
+}
+</style>
+</head>
+<body>
+<h3>[ 삭제 결과 ]</h3>
+	<div th:if="${result == false}">
+        <p>
+            아이디 <span th:text="${id}"></span>는 없는 아이디입니다.
+        </p>
+    </div>
+
+	<div th:if="${result == true}">
+        <p>
+            <span th:text="${id}"></span>를 삭제했습니다.
+        </p>
+    </div>
+</body>
+</html>

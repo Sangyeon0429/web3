@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>select.html</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: beige;
+	text-align: center;
+}
+
+h1 {
+	color: darkgreen;
+}
+
+form {
+	width: 300px;
+	margin: auto;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	margin: 5px 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+span{
+color: red;
+}
+</style>
+</head>
+<body>
+	<h3>[ ID 조회 ]</h3>
+
+	<!-- 
+	abc : 없는 회원입니다.
+ -->
+	<div th:if="${person == null}">
+        <p>
+            <span th:text="${id}"></span> : 없는 회원입니다.
+        </p>
+    </div>
+	<!-- 
+	ID : abc
+	이름 : 홍길동
+	나이 : 20
+ -->
+
+	<div th:if="${person != null}">
+        <p>
+            ID: <span th:text="${person.id}">abc</span>
+        </p>
+        <p>
+            이름: <span th:text="${person.name}">홍길동</span>
+        </p>
+        <p>
+            나이: <span th:text="${person.age}">20</span>
+        </p>
+    </div>
+</body>
+</html>
